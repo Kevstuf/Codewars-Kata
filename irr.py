@@ -20,9 +20,9 @@ def npv(irr, cf):
 
 #optimize using a global minimum optimizer
 def find_irr(cf):
-     bounds = [(-0.99,1)]
+     bounds = [(-0.99,0.99)]
      #result = spo.differential_evolution(npv, bounds = bounds, args = (cf, ), atol = 0.00001, disp = True)
      result = spo.shgo(npv, bounds = bounds, args = (cf, ), sampling_method='sobol', options = {"disp":True})
      return result.x
 
-print(find_irr(cf = [-300, -250]))
+print(find_irr(cf = [-300]))
