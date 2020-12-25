@@ -56,6 +56,7 @@ def interpreter(code, tape):
                 instr += 1
         elif sf[instr] == "]":
             if tape_list[pointer] == "0":
+                brack_pos.pop()
                 instr += 1
             elif tape_list[pointer] != "0":
                 instr = brack_pos[-1] 
